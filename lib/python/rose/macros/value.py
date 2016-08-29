@@ -69,8 +69,7 @@ class ValueChecker(rose.macro.MacroBase):
             value = node.value
             # Skip environment variable values
             if rose.env.contains_env_var(value):
-                if "type" in variable.metadata and variable.metadata["type"] != 'character':
-                    continue
+                continue
             var_id = self._get_id_from_section_option(sect, key)
             self._validate_id(var_id, value, meta_config)
         return self.reports
